@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --saffron: #FF6B1A;
+  --saffron-light: #FF8C42;
+  --saffron-dark: #CC4A00;
+  --turmeric: #F4C430;
+  --turmeric-dark: #C9960C;
+  --soil: #3D1A00;
+  --soil-light: #6B3A1F;
+  --soil-dark: #1A0A00;
+  --cream: #FFF8E7;
+  --cream-dark: #F0E0C0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  background-color: var(--soil-dark);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--soil);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--saffron-dark);
+  border-radius: 3px;
+}
+
+/* Village pattern background */
+.village-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 107, 26, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(244, 196, 48, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(255, 107, 26, 0.05) 0%, transparent 40%);
+}
+
+/* Rangoli-inspired decorative border */
+.rangoli-border {
+  border-image: linear-gradient(90deg, var(--saffron), var(--turmeric), var(--saffron)) 1;
+}
+
+/* Diya glow effect */
+.diya-glow {
+  animation: diyaGlow 2s ease-in-out infinite;
+}
+
+@keyframes diyaGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px #FF6B1A,
+      0 0 40px #FF6B1A,
+      0 0 60px rgba(255, 107, 26, 0.5);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px #FF4500,
+      0 0 60px #FF4500,
+      0 0 100px rgba(244, 196, 48, 0.6),
+      0 0 140px rgba(255, 69, 0, 0.3);
+  }
+}
+
+/* Mic listening animation */
+.listening-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid var(--saffron);
+  animation: listeningRing 1.5s ease-out infinite;
+}
+
+@keyframes listeningRing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Chat bubble styles */
+.chat-user {
+  background: linear-gradient(135deg, var(--saffron-dark), #8B2500);
+  border-radius: 18px 18px 4px 18px;
+}
+
+.chat-ai {
+  background: linear-gradient(135deg, #2A1200, var(--soil-light));
+  border-radius: 18px 18px 18px 4px;
+  border: 1px solid rgba(255, 107, 26, 0.3);
+}
+
+/* Product table */
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+}
+
+.product-table th {
+  background: linear-gradient(90deg, var(--saffron-dark), #8B3A00);
+  color: var(--cream);
+  padding: 10px 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.product-table td {
+  background: rgba(61, 26, 0, 0.6);
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255, 107, 26, 0.15);
+  font-size: 14px;
+}
+
+.product-table tr:hover td {
+  background: rgba(255, 107, 26, 0.1);
+}
+
+/* Buy button */
+.buy-btn {
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 26, 0.5);
+}
+
+/* Shopping list item */
+.shopping-item {
+  background: linear-gradient(135deg, rgba(61, 26, 0, 0.8), rgba(107, 58, 31, 0.4));
+  border: 1px solid rgba(255, 107, 26, 0.25);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.shopping-item:hover {
+  border-color: rgba(255, 107, 26, 0.5);
+}
+
+/* Mic button */
+.mic-button {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #FF8C42, #FF4500, #CC2200);
+  border: 4px solid var(--turmeric);
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mic-button:hover {
+  transform: scale(1.05);
+}
+
+.mic-button:active {
+  transform: scale(0.97);
+}
+
+.mic-button.listening {
+  background: radial-gradient(circle at 40% 35%, #FF4500, #CC0000, #8B0000);
+  border-color: #FF4500;
+}
+
+/* Flame decoration on mic */
+.mic-button::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 20px;
+  background: linear-gradient(to top, var(--turmeric), var(--saffron), transparent);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  filter: blur(1px);
+  animation: flicker 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scaleY(1) scaleX(1); }
+  100% { transform: translateX(-50%) scaleY(1.2) scaleX(0.9); }
+}
+
+/* Platform badge colors */
+.platform-flipkart { color: #F7AE01; }
+.platform-amazon { color: #FF9900; }
+.platform-meesho { color: #F43397; }
+.platform-jiomart { color: #0088CC; }
+.platform-indiamart { color: #2E8B57; }
+
+/* Responsive mobile adjustments */
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  .mic-button { width: 100px; height: 100px; }
+  .product-table th, .product-table td { padding: 8px 6px; font-size: 12px; }
+}
+
+/* Loading dots */
+.loading-dots span {
+  animation: loadingDot 1.4s ease-in-out infinite;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--saffron);
+  margin: 0 3px;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loadingDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Decorative mandala elements */
+.mandala-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--turmeric);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+/* Highlight text */
+.highlight-price {
+  color: var(--turmeric);
+  font-weight: 800;
+}
+
+.highlight-warning {
+  color: #FF6B6B;
+}
+
+.highlight-tip {
+  color: #90EE90;
+}
